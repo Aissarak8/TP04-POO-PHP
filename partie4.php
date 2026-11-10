@@ -25,4 +25,3 @@ class Personne
 
 $p = new Personne("Hachimi", "Sara", "2000-05-14");
 echo $p . PHP_EOL;
-

@@ -94,4 +94,3 @@ $etudiants[] = new Etudiant("El Fassi", "Omar", "2001-09-30", "Meknès", "EE1234
 foreach ($etudiants as $e) {
     echo $e . PHP_EOL;
 }
-

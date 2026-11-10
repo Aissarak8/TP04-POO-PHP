@@ -50,4 +50,3 @@ unset($v1);
 echo "Fin du script." . PHP_EOL;
 
 // new Voiture(120) provoque une TypeError en mode strict, car 120 n'est pas une chaîne.
-

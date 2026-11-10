@@ -46,4 +46,3 @@ echo $p->nom . PHP_EOL;
 // echo $p->cin;
 // echo $p->dateNaissance;
 // echo $p->getAge();
-

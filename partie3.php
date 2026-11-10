@@ -51,4 +51,3 @@ var_dump(isset($p->nom));
 unset($p->nom);
 var_dump(isset($p->nom));
 $p->telephone = "0600000000";
-

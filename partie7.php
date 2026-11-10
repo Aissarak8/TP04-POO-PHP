@@ -32,4 +32,3 @@ for ($i = 1; $i <= 10; $i++) {
 
 echo "Valeur du compte 1 = " . number_format($c1->get_montant(), 2, ",", " ") . " dirhams" . PHP_EOL;
 echo "Valeur du compte 2 = " . number_format($c2->get_montant(), 2, ",", " ") . " dirhams" . PHP_EOL;
-

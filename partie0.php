@@ -30,4 +30,3 @@ $v2 = new Voiture();
 $v2->setMarque("Renault");
 $v2->setCouleur("Rouge");
 $v2->afficher();
-

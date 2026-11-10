@@ -35,4 +35,3 @@ echo "Sérialisé : $serialise" . PHP_EOL;
 
 $restaure = unserialize($serialise);
 var_dump($restaure);
-
