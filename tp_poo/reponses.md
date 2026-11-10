@@ -16,7 +16,7 @@
 
 ## Partie 2
 
-**2.1.a** Avec `new Voiture("Noire")`, la vitesse reste 0. Avec `new Voiture(120)`, PHP peut convertir 120 en texte, mais en mode strict il donne une erreur de type.
+**2.1.a** Avec `new Voiture("Noire")`, la vitesse reste 0. Pour `new Voiture(120)`, le type ne correspond pas au paramètre couleur.
 
 **2.1.b** C'est plus court car on déclare et initialise les attributs dans le constructeur.
 
@@ -32,7 +32,7 @@ public function __construct(string $nom = "", string $prenom = "")
 
 **2.3.b** Sans `unset`, la destruction se fait après le message de fin.
 
-**2.3.c** En général `$b` est détruit avant `$a`.
+**2.3.c** Dans mon test, `$b` est détruit avant `$a`.
 
 **2.3.d** Le destructeur affiche `Détruire Personne`.
 
@@ -42,7 +42,7 @@ public function __construct(string $nom = "", string $prenom = "")
 
 **3.2** Sans `__set` on a une erreur. Avec `__set`, la méthode est appelée automatiquement.
 
-**3.3** Oui, si on accepte toutes les valeurs. Il faut vérifier la valeur avant de la mettre.
+**3.3** Oui. Il faut vérifier la valeur dans `__set` avant de l'accepter.
 
 **3.4** J'ai utilisé `strlen` et `InvalidArgumentException` pour refuser un nom trop court.
 
@@ -50,7 +50,7 @@ public function __construct(string $nom = "", string $prenom = "")
 
 **4.1** Car `getAge()` est appelée depuis une méthode de la même classe.
 
-**4.2** PHP donne une `TypeError` car `__toString()` doit retourner un texte.
+**4.2** Ça donne une erreur car `__toString()` doit retourner une chaîne.
 
 **4.3** C'est pratique pour faire `echo $p` ou concaténer l'objet avec un texte.
 
@@ -60,9 +60,9 @@ public function __construct(string $nom = "", string $prenom = "")
 
 **5.2** Sans `__serialize()`, le mot de passe apparaît aussi. Ce n'est pas sécurisé.
 
-**5.3** Après `unserialize`, le mot de passe est vide. Dans une vraie application il ne faut jamais garder le mot de passe en clair.
+**5.3** Après `unserialize`, le mot de passe est vide. Dans une vraie application il faut prévoir une autre façon pour le récupérer.
 
-**5.4** Une personne peut modifier les données et créer un objet dangereux. Ça s'appelle PHP Object Injection. On peut utiliser JSON à la place.
+**5.4** Les données peuvent être modifiées et causer un problème de sécurité appelé PHP Object Injection. Il vaut mieux utiliser JSON.
 
 ## Partie 6
 
@@ -70,11 +70,11 @@ public function __construct(string $nom = "", string $prenom = "")
 
 **6.1.b** Non, car `$c` est un `Chien` et `miauler()` existe seulement dans `Chat`.
 
-**6.2.a** `$nom` ne sera pas initialisé, donc on aura une erreur quand on va l'utiliser.
+**6.2.a** Le constructeur de `Personne` ne sera pas appelé, donc `$nom` ne sera pas initialisé.
 
 **6.2.b** Pour que la classe fille puisse accéder à `$nom`.
 
-**6.3.a** On ne peut pas modifier une méthode `final`, hériter d'une classe `final`, ou changer une propriété `readonly`.
+**6.3.a** Les trois essais donnent une erreur : méthode `final`, classe `final` et modification de `readonly`.
 
 **6.3.b** `readonly` peut servir pour un identifiant. `final` peut servir pour une classe qu'on ne veut pas modifier avec l'héritage.
 
@@ -104,4 +104,4 @@ public function __construct(string $nom = "", string $prenom = "")
 
 **4.** `private` est accessible seulement dans la classe. `protected` est aussi accessible dans les classes filles.
 
-**5.** Oui, les méthodes magiques sont généralement publiques. Les exceptions sont `__construct()`, `__destruct()` et `__clone()`.
+**5.** Oui, elles sont publiques. Il y a quelques exceptions comme `__construct()`, `__destruct()` et `__clone()`.
